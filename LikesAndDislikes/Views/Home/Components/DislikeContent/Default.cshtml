@@ -1,0 +1,24 @@
+﻿@model IList<ItemModel>
+
+<h2>Ogillar</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Vad är det som ogillas?</th>
+            <th>Vad är användarens val?</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dislikeItem in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => dislikeItem.Option)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => dislikeItem.Choice)
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>

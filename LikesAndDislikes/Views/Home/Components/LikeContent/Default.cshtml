@@ -1,0 +1,24 @@
+﻿@model IList<ItemModel>
+
+<h2>Gillar</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Vad är det som gillas?</th>
+            <th>Vad är användarens val?</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var likeItem in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => likeItem.Option)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => likeItem.Choice)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

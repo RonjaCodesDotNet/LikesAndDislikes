@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Profil";
+}
+
+@{
+    if (ViewData["User"] == null)
+    {
+        <h1>@ViewData["Title"]</h1>
+        <hr />
+
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Profile" method="get">
+                    <div class="form-group">
+                        <label for="user" class="control-label">Vems profil vill du se/ändra?</label>
+                        <input type="text" name="user" placeholder="Fyll i användarnamn" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Sök" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr />
+    }
+}
+
+@{
+    if (ViewData["User"] != null)
+    {
+        <h1>@ViewData["User"]s @ViewData["Title"]</h1>
+        <hr />
+
+        @await Component.InvokeAsync("LikeContent", new { username = ViewData["User"] });
+
+        @await Component.InvokeAsync("DislikeContent", new { username = ViewData["User"] });
+    }
+}
+
+<p>Klicka <a asp-action="AddItem">här</a> för att lägga till något i din lista.</p>
